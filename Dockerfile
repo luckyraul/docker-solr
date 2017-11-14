@@ -7,8 +7,9 @@ ENV SOLR apache-solr-$SOLR_VERSION
 
 ADD http://archive.apache.org/dist/lucene/solr/$SOLR_VERSION/$SOLR.tgz /opt/$SOLR.tgz
 RUN tar -C /opt --extract --file /opt/$SOLR.tgz && mv /opt/$SOLR /opt/solr
+COPY conf/* /opt/solr/example/solr/conf/
 
-EXPOSE 8983
 WORKDIR /opt/solr
+EXPOSE 8983
 
 CMD ["/bin/bash", "-c", "cd /opt/solr/example; java -jar start.jar"]
