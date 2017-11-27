@@ -9,7 +9,8 @@ ADD http://archive.apache.org/dist/lucene/solr/$SOLR_VERSION/$SOLR.tgz /opt/$SOL
 RUN tar -C /opt --extract --file /opt/$SOLR.tgz && mv /opt/$SOLR /opt/solr
 COPY conf/* /opt/solr/example/solr/conf/
 
-WORKDIR /opt/solr
+WORKDIR /opt/solr/example
 EXPOSE 8983
+VOLUME /opt/solr/example/solr/data
 
-CMD ["/bin/bash", "-c", "cd /opt/solr/example; java -jar start.jar"]
+CMD ["/bin/bash", "-c", "java -jar start.jar"]
