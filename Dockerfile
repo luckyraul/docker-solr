@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-RUN apt-get -qq update && apt-get -qqy install openjdk-8-jre-headless
+RUN apt-get -qq update && apt-get -qqy install openjdk-8-jre-headless openjdk-8-jdk-headless
 
 ENV SOLR_VERSION 3.6.2
 ENV SOLR apache-solr-$SOLR_VERSION
